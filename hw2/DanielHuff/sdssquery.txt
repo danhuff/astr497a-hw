@@ -1,0 +1,13 @@
+SELECT ra,dec,r INTO mydb.hw2
+FROM Star
+WHERE
+    r BETWEEN 20 and 22 AND g < 23 AND g - r < 0.4 
+    AND ((flags_r & 0x10000000) != 0) 
+    
+    AND ((flags_r & 0x8100000c00a4) = 0) 
+    
+    
+    AND (((flags_r & 0x400000000000) = 0) or (psfmagerr_r <= 0.2)) 
+    
+    
+    AND (((flags_r & 0x100000000000) = 0) or (flags_r & 0x1000) = 0)
